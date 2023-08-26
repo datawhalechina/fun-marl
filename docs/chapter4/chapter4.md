@@ -67,14 +67,14 @@ $$
 - $\mathbb{H}$：非终止选择节点集合。
 - $\mathbb{T}$：终止选择节点集合，脱离于$\mathbb{H}$。
 - $\chi:\mathbb{H}\to2^{\vert\mathbb{A}\vert}$：为每个选择节点分配动作的动作函数。
-- $\rho:\mathbb{H} \to \{1,\ldots,N\}$：智能体的身份函数，为非终止节点分配一个在该节点选择动作的智能体。
+- $\rho:\mathbb{H} \to \\{1,\ldots,N\\}$：智能体的身份函数，为非终止节点分配一个在该节点选择动作的智能体。
 - $P:\mathbb{H}\times\mathbb{A}\to\mathbb{H}\bigcup\mathbb{T}$：把一个选择节点和一个动作映射到一个新选择节点或终止节点的转换函数，以便于$\forall h_ 1,h_ 2\epsilon\mathbb{H}$和$\forall a_ 1,a_ 2\epsilon \mathbb{A}$，若$P(h_ 1,a_ 1)=P(h_ 2, a_ 2)$，则$h_ 1=h_ 2$且$a_ 1=a_ 2$。
 - $R^i:\mathbb{T}\to\mathbb{R}$：为玩家$i$在终止节点的奖励函数，其函数值为实数。
-- $\mathbb{S}^i$：智能体$i$等价类的集合$\mathbb{S}^i=\left(S_ 1^ i,\cdots,S_ {k^ i}^i\right)$。该集合拥有性质为：对于$\forall j\epsilon \{1,\ldots,k^i\}$，$\forall h,{h}'\epsilon S_ j^i$，有$\chi(h)=\chi({h}')$和$\rho(h)=\rho({h}')$。集合$S_ j^i$被成为**信息状态**，其物理意义为一个信息状态中选择节点是无法可区分的。换句话说，一个信息状态中选择节点的智能体身份集合和有效行动集合是相同的。因此，对于$\forall h\epsilon S_ j^i$，可用$\chi(S_ j^i),\rho(S_ j^i)$分别表示$\chi(h)$,$\rho(h)$。
+- $\mathbb{S}^i$：智能体$i$等价类的集合$\mathbb{S}^i=\left(S_ 1^ i,\cdots,S_ {k^ i}^i\right)$。该集合拥有性质为：对于$\forall j\epsilon \\{1,\ldots,k^i\\}$，$\forall h,{h}'\epsilon S_ j^i$，有$\chi(h)=\chi({h}')$和$\rho(h)=\rho({h}')$。集合$S_ j^i$被成为**信息状态**，其物理意义为一个信息状态中选择节点是无法可区分的。换句话说，一个信息状态中选择节点的智能体身份集合和有效行动集合是相同的。因此，对于$\forall h\epsilon S_ j^i$，可用$\chi(S_ j^i),\rho(S_ j^i)$分别表示$\chi(h)$,$\rho(h)$。
 
 为了便于表示，定义一个映射$I:\mathbb{H}\to \mathbb{S}$，若$h\epsilon s$，则$I(h)=s$。在扩展式博弈中，仅仅考虑$\mathbb{H}$和$\mathbb{A}$为有限集合。为了简化概念，对于$\forall h,{h}'\epsilon \mathbb{H}$，若$h$可以从${h}'$采取一系列动作之后到达，那么$h$为${h}'$的前缀，可以表示为$h\subseteq {h}'$，也可以称${h}'$为$h$的一个后缀。此外，在整个博弈过程中，每个智能体能够记住产生当前信息状态的信息序列和动作序列，即完美召回(perfect recall)。**完美召回**使算法能够在多项式时间内解决博弈。在完美召回的假设下，根据Kuhn's theorem，存在一个映射使信息集合$s\epsilon \mathbb{S}$与关于$\mathbb{A}(s)$的概率分布相对应，即行为策略(behavioral policies)存在。
 
-对于$\forall i\epsilon N$，智能体$i$的信息状态集合$\mathbb{S}^i=\{s\epsilon \mathbb{S}:\rho(s)=i\}$。智能体的联合策略被表示为$\pi=(\pi^1,\cdots,\pi^N)$，其中$\pi^i:\mathbb{S}\to \Delta(\mathbb{A}(s))$为智能体$i$的策略。对于$\forall{h,\pi}$，可以定义在策略$\pi$下选择$h$的可达概率为
+对于$\forall i\epsilon N$，智能体$i$的信息状态集合$\mathbb{S}^i=\\{s\epsilon \mathbb{S}:\rho(s)=i\\}$。智能体的联合策略被表示为$\pi=(\pi^1,\cdots,\pi^N)$，其中$\pi^i:\mathbb{S}\to \Delta(\mathbb{A}(s))$为智能体$i$的策略。对于$\forall{h,\pi}$，可以定义在策略$\pi$下选择$h$的可达概率为
 $$
 \begin{equation}
 \eta_{\pi}(h)=\prod_{{h}':{h}'a\subseteq h}\pi^{\rho({h}')}(a\vert I({h}'))=\prod_ {i\epsilon N}\prod_{{h}':{h}'a\subseteq h,\rho({h}')=i}\pi^{i}(a\vert I({h}')) \tag{3.2}
@@ -120,7 +120,7 @@ $$
 
 - **部分可观测马尔可夫决策过程(POMDP)**: 部分可观测限制下的单智能体马尔可夫决策过程。
 - **去中心化马尔可夫决策过程(Dec-MDP)**: 在Dec-MDP中，智能体拥有*联合完全可观测性*。也就是，若所有智能体共享它们的观测，它们的环境状态为完全可观测。在数学上，有$\forall o\epsilon\mathbb{O},\exists s\epsilon\mathbb{S}$以便于$\mathbb{P}(\mathbb{S}\_t=s\vert\mathbb{O}\_t=o)=1$。
-- **完全合作场景下的随机博弈**: 假设每个智能体有完全可观测性，即$\forall i=\{1,\ldots,N\}$,$\forall o^i\epsilon \mathbb{O}^i,\exists s\epsilon \mathbb{S}$以便于$\mathbb{P}(\mathbb{S}_t=s\vert \mathbb{O}_t=o^i)=1$。该博弈也是随机博弈的一个特殊类型。
+- **完全合作场景下的随机博弈**: 假设每个智能体有完全可观测性，即$\forall i=\\{1,\ldots,N\\}$,$\forall o^i\epsilon \mathbb{O}^i,\exists s\epsilon \mathbb{S}$以便于$\mathbb{P}(\mathbb{S}_t=s\vert \mathbb{O}_t=o^i)=1$。该博弈也是随机博弈的一个特殊类型。
 
 ## 学习场景
 
