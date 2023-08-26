@@ -4,11 +4,12 @@
 
 单智能体强化学习的框架为马尔可夫决策过程(Markov Decision Process)，而多智能体强化学习的框架有两种，分别为随机博弈(Stochastic Game)和扩展式博弈(Extensive-form Game)。如图5.1所示，学习框架。
 
-<div align=center><img width="800" src="../img/chapter3/Infrastructre.png" /></div>
+<div align=center><img width="800" src="../img/chapter4/Infrastructre.png" /></div>
 
 <div align=center>
-    图5.1 学习框架
+    图4.1 学习框架
 </div>
+
 
 
 ### 随机博弈
@@ -46,14 +47,15 @@ $$
 
 如图5.2展示了两个玩家库恩扑克的博弈树。在库恩扑克中，发牌商有三张卡片，分别是：King、Queen、Jack(King>Queen>Jack)，每个玩家都会收到一张卡片(图5.2中橘色节点)。与此同时，第三章卡片会放到旁边，不允许被看。
 
-<div align=center><img width="800" src="../img/chapter3/EFG-Tree.png" /></div>
+<div align=center><img width="800" src="../img/chapter4/EFG-Tree.png" /></div>
 
 <div align=center>
-  图5.2 库恩扑克博弈树
+  图5.4 库恩扑克博弈树
 </div>
 <div>
 注释：每个节点(圆圈、正方形、三角形)表示一个玩家的选择，每个边表示一个可能的行动，叶子表示最终的结果，玩家各有一个奖励函数(只有一个玩家的奖励被展示，这是因为库恩扑克为零和博弈)。每个玩家仅仅能观测到自己的卡片，例如：当玩家一手中一张Jack时，它不能告诉玩家二，它手中是Queen还是King。
 </div>
+
 
 对于多玩家(智能体)决策，扩展式博弈(EFGs)的一个重要特征是可以建模**不完美信息**。例如：库恩扑克中玩家不知对手有什么牌。Dec-POMDP也可以建模不完美信息场景，但是难以求解。在同一个序列形式中，与Dec-POMDP不一样，EFG能够在多项式时间内被线性规划(Linear Programing)解决。接下来，首先引入扩展式博弈，然后引入扩展式博弈的序列形式。
 
@@ -161,11 +163,12 @@ Dec-POMDPs通过部分可观测条件与单智能体的马尔可夫决策过程�
 
 智能体在学习和执行时，环境的部分可观测性会加剧非静态引起的问题。其中，环境的部分可观测性是指每个智能体不能完全获取其它智能体的行为信息，最多能够对其它智能体的行为进行采样。由于环境的非静态性，智能体可采取的学习执行方式非单一，从而智能体的信息结构是多种多样的，常见的信息结构分别有**中心化结构**、**网络结构**、**去中心化结构**。其中，去中心化结构的算法常常面临难以收敛的情况。
 
-<div align=center><img width="800" src="../img/chapter3/Information Structure.png" /></div>
+<div align=center><img width="800" src="../img/chapter4/Information Structure.png" /></div>
 
 <div align=center>
-    图5.3 多智能体的常见信息结构
+    图4.3 多智能体的常见信息结构
 </div>
+
 
 
 
