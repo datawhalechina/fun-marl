@@ -4,7 +4,7 @@
 
 单智能体强化学习的框架为马尔可夫决策过程(Markov Decision Process)，而多智能体强化学习的框架有两种，分别为随机博弈(Stochastic Game)和扩展式博弈(Extensive-form Game)。如图4.1所示，学习框架。
 
-<div align=center><img width="800" src="../img/chapter4/Infrastructre.png" /></div>
+<div align=center><img width="800" src="./img/Infrastructre.png" /></div>
 
 <div align=center>
     图4.1 学习框架
@@ -47,7 +47,7 @@ $$
 
 如图4.2展示了两个玩家库恩扑克的博弈树。在库恩扑克中，发牌商有三张卡片，分别是：King、Queen、Jack(King>Queen>Jack)，每个玩家都会收到一张卡片(图5.2中橘色节点)。与此同时，第三章卡片会放到旁边，不允许被看。
 
-<div align=center><img width="800" src="../img/chapter4/EFG-Tree.png" /></div>
+<div align=center><img width="800" src="./img/EFG-Tree.png" /></div>
 
 <div align=center>
   图4.2 库恩扑克博弈树
@@ -164,7 +164,7 @@ $$
 
 智能体在学习和执行时，环境的部分可观测性会加剧非静态引起的问题。其中，环境的部分可观测性是指每个智能体不能完全获取其它智能体的行为信息，最多能够对其它智能体的行为进行采样。由于环境的非静态性，智能体可采取的学习执行方式非单一，从而智能体的信息结构是多种多样的，常见的信息结构分别有**中心化结构**、**网络结构**、**去中心化结构**。其中，去中心化结构的算法常常面临难以收敛的情况。
 
-<div align=center><img width="800" src="../img/chapter4/Information Structure.png" /></div>
+<div align=center><img width="800" src="./img/Information Structure.png" /></div>
 
 <div align=center>
     图4.3 多智能体的常见信息结构
