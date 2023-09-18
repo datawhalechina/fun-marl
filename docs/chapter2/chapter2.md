@@ -14,7 +14,7 @@
 - $R:\mathbb{S}\times\mathbb{A}\times\mathbb{S}\to\mathbb{R}：$ 表示奖励函数，即智能体采取动作$a$后，环境从状态$s$转换到状态${s}'$，返回一个标量值。奖励的绝对值有界于$R_{max}$。
 - $\gamma\epsilon[0,1]：$ 折扣系数，用于决定智能体对未来奖励的重视程度。
 
-在强化学习中，智能体的学习目标是寻找到期望奖励最大化的**最优策略**。如式2.1所示，最优策略引导智能体采取序列行动，从而最大化折扣累计回报。在数学上，智能体的目标是找到一个马尔可夫性的(Markovian)和静态的(Stationary)策略。其中，Markovian是指$s_t$取决于上一时刻的状态$s_{t-1}$，与状态$s_{i< t-1}$无关；Stationary是指策略函数与时间独立或不相关。然而，随机过程具有马尔可夫性，并不意味着$a_t$仅仅影响$s_{t+1}$，也对未来的状态和奖励产生影响。
+在强化学习中，智能体的学习目标是寻找到期望累计折扣奖励最大化的**最优策略**。如式2.1所示，最优策略引导智能体采取序列行动，从而最大化累计折扣回报。马尔可夫决策过程具有马尔可夫性，即状态$s_t$取决于上一时刻状态$s_{t-1}$，而与历史状态$s_{i<(t-1)}$无关。但是，$a_t$不仅仅影响$s_{t+1}$，也对未来的状态和奖励产生影响。
 $$
 \begin{equation}
 \mathbb{E}\_{s\_{t+1}\sim P(\cdot|s\_t,a\_t)}\begin{bmatrix}\sum\_{t\ge0}\gamma ^{t}R(s\_t,a\_t,s\_{t+1})\vert a\_t\sim\pi(\cdot\vert s\_t),s\_0\end{bmatrix}\tag{2.1}
@@ -86,7 +86,7 @@ $$
 
 #### Dueling Network
 
-相较于DQN、Double DQN、以及Prioritized Replay，Dueling Network是强化学习网络架构上的创新。在实践中，发现，Dueling Network算法的表现性能是最好的。Dueling Network网络架构由两个部分组成，分别为状态价值函数![img](https://cdn.nlark.com/yuque/__latex/283b1b0d0929bc6fe1f092901d366e1a.svg)预测部分和优势函数函数![img](https://cdn.nlark.com/yuque/__latex/450c50a85770bd2a9af629098326981d.svg)预测部分，以上两个函数近似器底层共享一个卷积模块，用于特征学习。该网络架构背后的思想是：存在状态$s_t$，不需要估计状态-动作$(s_t,a_t)$的价值。如图2.1所示，Dueling Network的网络架构。
+相较于DQN、Double DQN、以及Prioritized Replay，Dueling Network是强化学习网络架构上的创新。在实践中，发现，Dueling Network算法的表现性能是最好的。Dueling Network网络架构由两个部分组成，分别为状态价值函数$V(s\_t)$预测部分和优势函数函数$A(s\_t,a\_t)$预测部分，以上两个函数近似器底层共享一个卷积模块，用于特征学习。该网络架构背后的思想是：存在状态$s_t$，不需要估计状态-动作$(s_t,a_t)$的价值。如图2.1所示，Dueling Network的网络架构。
 
 <div align=center><img width="800" src="./img/dueling-network.png" /></div>
 
