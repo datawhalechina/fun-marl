@@ -88,7 +88,7 @@ $$
 
 相较于DQN、Double DQN、以及Prioritized Replay，Dueling Network是强化学习网络架构上的创新。在实践中，发现，Dueling Network算法的表现性能是最好的。Dueling Network网络架构由两个部分组成，分别为状态价值函数![img](https://cdn.nlark.com/yuque/__latex/283b1b0d0929bc6fe1f092901d366e1a.svg)预测部分和优势函数函数![img](https://cdn.nlark.com/yuque/__latex/450c50a85770bd2a9af629098326981d.svg)预测部分，以上两个函数近似器共享一个卷积模块，用于特征学习。该网络架构背后的思想是并不是所有状态下都需要知道动作的价值。如图2.1所示，Dueling Network的网络架构。
 
-<div align=center><img width="800" src="../img/chapter2/dueling-network.png" /></div>
+<div align=center><img width="800" src="./img/dueling-network.png" /></div>
 
 <div align=center>
     图2.1 Dueling-network 网络架构
